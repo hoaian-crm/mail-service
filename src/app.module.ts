@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { ClientModule } from './modules/client/client.module';
 import { MailModule } from './modules/mail/mail.module';
 import { TemplateModule } from './modules/template/template.module';
 @Module({
@@ -22,6 +23,7 @@ import { TemplateModule } from './modules/template/template.module';
     // App Module
     MailModule,
     TemplateModule,
+    ClientModule,
   ],
 })
 export class AppModule {}
