@@ -29,7 +29,7 @@ export class MailService {
 
   async createMailer() {
     const plugin = await this.dataSource.query(
-      "select * from plugins where plugins.enable = true and name='mailer'",
+      "select * from plugins where plugins.enable = true and name='mail'",
     );
 
     if (!plugin) {
