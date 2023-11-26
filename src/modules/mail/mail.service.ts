@@ -32,7 +32,7 @@ export class MailService {
       "select * from plugins where plugins.enable = true and name='mail'",
     );
 
-    if (!plugin) {
+    if (!plugin || plugin.length === 0) {
       throw new Error('Please enable mail service to use');
     }
 
