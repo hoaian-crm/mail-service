@@ -23,7 +23,7 @@ export class MailService {
 
   async onModuleInit() {
     this.clientService.addListener<CreateMailDto>('mail', (data) => {
-      console.log('data', data);
+      this.sendMail(data)
     });
   }
 
