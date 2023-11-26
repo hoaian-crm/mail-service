@@ -18,13 +18,13 @@ export class MailService {
     private templateService: TemplateService,
     private clientService: ClientService,
   ) {
-    this.createMailer();
   }
 
   async onModuleInit() {
     this.clientService.addListener<CreateMailDto>('mail', (data) => {
       this.sendMail(data)
     });
+    this.createMailer();
   }
 
   async createMailer() {
