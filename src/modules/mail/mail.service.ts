@@ -7,6 +7,7 @@ import { ClientService } from '../client/client.service';
 import { TemplateService } from '../template/template.service';
 import { CreateMailDto } from './dto/create.dto';
 import { Mail } from './mail.entity';
+import { FindMailDto } from './dto/find.dto';
 
 @Injectable()
 export class MailService {
@@ -17,12 +18,11 @@ export class MailService {
     @InjectDataSource() private dataSource: DataSource,
     private templateService: TemplateService,
     private clientService: ClientService,
-  ) {
-  }
+  ) {}
 
   async onModuleInit() {
     this.clientService.addListener<CreateMailDto>('mail', (data) => {
-      this.sendMail(data)
+      this.sendMail(data);
     });
     this.createMailer();
   }
@@ -59,5 +59,12 @@ export class MailService {
     }
     const mail = await this.mailRepository.save(data);
     return mail;
+  }
+
+  async findAndCount(query: FindMailDto) {
+    return this.mailRepository.findAndCount({
+      take: query.limit,
+      skip: query.offset,
+    });
   }
 }
