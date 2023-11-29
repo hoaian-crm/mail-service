@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { S3 } from 'aws-sdk';
+import { S3Path } from 'src/prototypes/constants/s3';
 
 @Injectable()
 export class S3Service {
@@ -16,5 +17,11 @@ export class S3Service {
     });
   }
 
-  async uploadFile(bucket: S3Path) {}
+  async uploadFile(bucket: S3Path) {
+    return this.client.upload({
+      ACL: 'public-read',
+      Bucket: 'dev',
+      Key: '123123'
+    });
+  }
 }
