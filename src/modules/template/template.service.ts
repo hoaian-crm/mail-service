@@ -1,6 +1,7 @@
-import HandleBars from 'handlebars';
 import { Injectable } from '@nestjs/common';
 import * as fs from 'fs';
+import HandleBars from 'handlebars';
+import { StorageService } from '../storage/storage.service';
 
 export type Templates = {
   [key: string]: any;
@@ -10,7 +11,7 @@ export type Templates = {
 export class TemplateService {
   private templates: Templates = {};
 
-  constructor() {
+  constructor(private storageService: StorageService) {
     fs.readdirSync('template').map((file) => {
       const filePath = 'template/' + file;
       const templateStr = fs.readFileSync(filePath).toString('utf-8');
