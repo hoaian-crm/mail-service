@@ -3,6 +3,8 @@ import { Client, ClientGrpc, Transport } from '@nestjs/microservices';
 import {
   IStorageController,
   PutFileResponse,
+  ReadFile,
+  ReadFileResponse,
 } from 'src/prototypes/gen/ts/interfaces/storage';
 import { observableHandler } from './../../prototypes/formatters/observable';
 
@@ -15,6 +17,8 @@ export class StorageService implements OnModuleInit {
       url: 'localhost:5000',
       package: 'storage',
       protoPath: 'src/prototypes/interfaces/storage.proto',
+      maxReceiveMessageLength: 1024 * 1024 * 1024,
+      maxSendMessageLength: 1024 * 1024 * 1024,
     },
   })
   private client: ClientGrpc;
@@ -38,7 +42,11 @@ export class StorageService implements OnModuleInit {
     );
   }
 
-  async readFile() {}
+  async readFile(request: ReadFile) {
+    return observableHandler<ReadFileResponse>(
+      await this.storageController.Read(request),
+    );
+  }
 
   async healthCheck() {
     return await this.storageController.HealthCheck({

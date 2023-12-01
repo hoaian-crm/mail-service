@@ -4,10 +4,6 @@ export class CreateTemplateDto {
   @IsString()
   name: string;
 
-  @IsString()
-  @IsOptional()
-  html: string;
-
   @IsOptional()
   @IsObject()
   context: object;

@@ -1,12 +1,13 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { RedisModule } from '../redis/redis.module';
 import { StorageModule } from '../storage/storage.module';
 import { TemplateController } from './template.controller';
 import { Template } from './template.entity';
 import { TemplateService } from './template.service';
 
 @Module({
-  imports: [StorageModule, TypeOrmModule.forFeature([Template])],
+  imports: [StorageModule, TypeOrmModule.forFeature([Template]), RedisModule],
   providers: [TemplateService],
   exports: [TemplateService],
   controllers: [TemplateController],

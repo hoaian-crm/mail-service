@@ -13,4 +13,6 @@ export class Template {
 
   @Column('jsonb')
   context: object;
+
+  content: string | Buffer | Uint8Array;
 }

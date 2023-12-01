@@ -3,13 +3,17 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ClientModule } from './modules/client/client.module';
 import { MailModule } from './modules/mail/mail.module';
+import { RedisModule } from './modules/redis/redis.module';
 import { StorageModule } from './modules/storage/storage.module';
 import { TemplateModule } from './modules/template/template.module';
+
 @Module({
   imports: [
+    // Config
     ConfigModule.forRoot({
       isGlobal: true,
     }),
+    // Database
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: process.env.PG_HOST,
@@ -26,6 +30,7 @@ import { TemplateModule } from './modules/template/template.module';
     TemplateModule,
     ClientModule,
     StorageModule,
+    RedisModule,
   ],
 })
 export class AppModule {}

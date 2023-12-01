@@ -6,8 +6,8 @@ import { DataSource, Repository } from 'typeorm';
 import { ClientService } from '../client/client.service';
 import { TemplateService } from '../template/template.service';
 import { CreateMailDto } from './dto/create.dto';
-import { Mail } from './mail.entity';
 import { FindMailDto } from './dto/find.dto';
+import { Mail } from './mail.entity';
 
 @Injectable()
 export class MailService {
@@ -54,7 +54,10 @@ export class MailService {
     if (data.html) {
       await this.mailer.sendMail(data);
     } else {
-      data.html = this.templateService.render(data.template, data.context);
+      data.html = await this.templateService.render(
+        data.template,
+        data.context,
+      );
       await this.mailer.sendMail(data);
     }
     const mail = await this.mailRepository.save(data);
