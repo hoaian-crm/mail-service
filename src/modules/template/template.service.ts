@@ -37,10 +37,10 @@ export class TemplateService {
 
   async create(file: Express.Multer.File, data: CreateTemplateDto) {
     if (!file && !data.html) {
-      Response.badRequestThrow(Messages.mustHaveFileOrContent);
+      Response.badRequestThrow(Messages.mustHaveFile);
     }
     if (!file) {
-      file = {} as any
+      file = {} as any;
       file.buffer = Buffer.from(data.html);
       file.originalname = data.name + '.hbs';
     }
