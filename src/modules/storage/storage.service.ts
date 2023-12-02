@@ -14,7 +14,7 @@ export class StorageService implements OnModuleInit {
   @Client({
     transport: Transport.GRPC,
     options: {
-      url: 'localhost:5000',
+      url: process.env.STORAGE_GRPC,
       package: 'storage',
       protoPath: 'src/prototypes/interfaces/storage.proto',
       maxReceiveMessageLength: 1024 * 1024 * 1024,
