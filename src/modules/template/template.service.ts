@@ -44,6 +44,7 @@ export class TemplateService {
   }
 
   async create(file: Express.Multer.File, data: CreateTemplateDto) {
+    if(!file) Response.badRequestThrow(Messages.mustHaveFile)
     const uploadedFile = await this.storageService.upload(
       file,
       '/mail/templates/',
