@@ -68,10 +68,9 @@ export class TemplateService {
       '/mail/preview_image',
     );
     const template = this.templateRepository.create({
-      name: data.name,
       location: uploadedFile.url,
-      context: data.context || {},
-      previewImage: uploadedImage.url
+      previewImage: uploadedImage.url,
+      ...data
     });
     await this.templateRepository.upsert(template, ['name']);
     return template;
