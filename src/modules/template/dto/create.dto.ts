@@ -7,4 +7,8 @@ export class CreateTemplateDto {
   @IsOptional()
   @IsObject()
   context: object;
+
+  @IsOptional()
+  @IsString()
+  description: string;
 }

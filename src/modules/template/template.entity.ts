@@ -18,4 +18,7 @@ export class Template {
 
   @Column()
   previewImage: string;
+
+  @Column()
+  description: string;
 }
