@@ -47,6 +47,9 @@ export class TemplateService {
   async htmlToImage(html: string) {
     const image = await nodeHtmlToImage({
       html,
+      puppeteerArgs: {
+        args: ['--no-sandbox']
+      }
     });
     return image as Buffer;
   }
