@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import Handlebars from 'handlebars';
+import nodeHtmlToImage from 'node-html-to-image';
 import { Messages } from 'src/prototypes/formatters/messages';
 import { DefaultQuery } from 'src/prototypes/formatters/query';
 import { Response } from 'src/prototypes/formatters/response';
@@ -43,16 +44,31 @@ export class TemplateService {
     return template;
   }
 
+  async htmlToImage(html: string) {
+    const image = await nodeHtmlToImage({
+      html,
+    });
+    return image as Buffer;
+  }
+
   async create(file: Express.Multer.File, data: CreateTemplateDto) {
-    if(!file) Response.badRequestThrow(Messages.mustHaveFile)
+    if (!file) Response.badRequestThrow(Messages.mustHaveFile);
     const uploadedFile = await this.storageService.upload(
       file,
       '/mail/templates/',
+    );
+    let previewImage = file;
+    previewImage.buffer = await this.htmlToImage(file.buffer.toString());
+    previewImage.originalname = data.name + ".png";
+    const uploadedImage = await this.storageService.upload(
+      previewImage,
+      '/mail/preview_image',
     );
     const template = this.templateRepository.create({
       name: data.name,
       location: uploadedFile.url,
       context: data.context || {},
+      previewImage: uploadedImage.url
     });
     await this.templateRepository.upsert(template, ['name']);
     return template;

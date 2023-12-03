@@ -15,4 +15,7 @@ export class Template {
   context: object;
 
   content: string | Buffer | Uint8Array;
+
+  @Column()
+  previewImage: string;
 }
