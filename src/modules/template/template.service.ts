@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DefaultQuery, Messages, Response } from 'crm-prototypes';
+import { StorageService } from 'crm-storage-client';
 import Handlebars from 'handlebars';
 import nodeHtmlToImage from 'node-html-to-image';
 import { Repository } from 'typeorm';
 import { RedisService } from '../redis/redis.service';
-import { StorageService } from '../storage/storage.service';
 import { CreateTemplateDto } from './dto/create.dto';
 import { Template } from './template.entity';
 

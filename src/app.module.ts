@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { StorageModule } from 'crm-storage-client';
 import { ClientModule } from './modules/client/client.module';
 import { MailModule } from './modules/mail/mail.module';
 import { RedisModule } from './modules/redis/redis.module';
-import { StorageModule } from './modules/storage/storage.module';
 import { TemplateModule } from './modules/template/template.module';
 
 @Module({
