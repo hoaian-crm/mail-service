@@ -8,8 +8,7 @@ import {
   UseInterceptors,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { DefaultQuery } from 'src/prototypes/formatters/query';
-import { Response } from 'src/prototypes/formatters/response';
+import { DefaultQuery, Response } from 'crm-prototypes';
 import { CreateTemplateDto } from './dto/create.dto';
 import { TemplateService } from './template.service';
 

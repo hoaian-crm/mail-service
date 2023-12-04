@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
+import { RedisDb } from 'crm-prototypes';
 import { RedisClientType, createClient } from 'redis';
-import { RedisDb } from 'src/prototypes/constants/redis_db';
 
 @Injectable()
 export class RedisService {

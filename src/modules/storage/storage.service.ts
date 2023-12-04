@@ -1,22 +1,16 @@
 import { Injectable, OnModuleInit } from '@nestjs/common';
 import { Client, ClientGrpc, Transport } from '@nestjs/microservices';
-import {
-  IStorageController,
-  PutFileResponse,
-  ReadFile,
-  ReadFileResponse,
-} from 'src/prototypes/gen/ts/interfaces/storage';
-import { observableHandler } from './../../prototypes/formatters/observable';
+import { Storage, observableHandler } from 'crm-prototypes';
 
 @Injectable()
 export class StorageService implements OnModuleInit {
-  private storageController: IStorageController;
+  private storageController: Storage.IStorageController;
   @Client({
     transport: Transport.GRPC,
     options: {
       url: process.env.STORAGE_GRPC,
       package: 'storage',
-      protoPath: 'src/prototypes/interfaces/storage.proto',
+      protoPath: 'node_modules/crm-prototypes/interfaces/storage.proto',
       maxReceiveMessageLength: 1024 * 1024 * 1024,
       maxSendMessageLength: 1024 * 1024 * 1024,
     },
@@ -25,13 +19,13 @@ export class StorageService implements OnModuleInit {
   constructor() {}
   async onModuleInit() {
     this.storageController =
-      this.client.getService<IStorageController>('IStorageController');
+      this.client.getService<Storage.IStorageController>('IStorageController');
   }
 
   async upload(
     file: Express.Multer.File,
     path: string,
-  ): Promise<PutFileResponse> {
+  ): Promise<Storage.PutFileResponse> {
     return observableHandler(
       await this.storageController.Put({
         content: file.buffer,
@@ -41,8 +35,8 @@ export class StorageService implements OnModuleInit {
     );
   }
 
-  async readFile(request: ReadFile) {
-    return observableHandler<ReadFileResponse>(
+  async readFile(request: Storage.ReadFile) {
+    return observableHandler<Storage.ReadFileResponse>(
       await this.storageController.Read(request),
     );
   }
