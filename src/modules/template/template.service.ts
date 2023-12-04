@@ -48,8 +48,8 @@ export class TemplateService {
     const image = await nodeHtmlToImage({
       html,
       puppeteerArgs: {
-        args: ['--no-sandbox']
-      }
+        args: ['--no-sandbox'],
+      },
     });
     return image as Buffer;
   }
@@ -60,9 +60,9 @@ export class TemplateService {
       file,
       '/mail/templates/',
     );
-    let previewImage = file;
+    const previewImage = file;
     previewImage.buffer = await this.htmlToImage(file.buffer.toString());
-    previewImage.originalname = data.name + ".png";
+    previewImage.originalname = data.name + '.png';
     const uploadedImage = await this.storageService.upload(
       previewImage,
       '/mail/preview_image',
@@ -70,7 +70,7 @@ export class TemplateService {
     const template = this.templateRepository.create({
       location: uploadedFile.url,
       previewImage: uploadedImage.url,
-      ...data
+      ...data,
     });
     await this.templateRepository.upsert(template, ['name']);
     return template;

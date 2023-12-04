@@ -3396,10 +3396,13 @@ create-require@^1.1.0:
   resolved "https://registry.yarnpkg.com/create-require/-/create-require-1.1.1.tgz#c1d7e8f1e5f6cfc9ff65f9cd352d37348756c333"
   integrity sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ==
 
-crm-prototypes@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/crm-prototypes/-/crm-prototypes-1.0.0.tgz#9f7c5f9ded19f6a543dbc9f391994e6ac4470ea6"
-  integrity sha512-uK//bdDg8P+HxPnn7Qtl1XJiDSM0PdfVTbKTcTZX1f4YFsL92JQ/auYqvYsb/YhCtpZ6UmvtJzkGz34JRe7m9w==
+crm-prototypes@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/crm-prototypes/-/crm-prototypes-1.0.1.tgz#d273609275b0d405d598f19514448d25a75b2891"
+  integrity sha512-KgxkSqMtO/J3hjBGyuUgU2zMCh6RoFP29IXTAFt3bE6kaoJZRLq5SFIl8xS9fpwNlHE4tFmzIeDMwwOjaCe5Dg==
+  dependencies:
+    protobufjs "^7.2.5"
+    typescript "^5.3.2"
 
 cross-fetch@4.0.0:
   version "4.0.0"
@@ -6014,7 +6017,7 @@ prompts@^2.0.1:
     kleur "^3.0.3"
     sisteransi "^1.0.5"
 
-protobufjs@^7.2.4:
+protobufjs@^7.2.4, protobufjs@^7.2.5:
   version "7.2.5"
   resolved "https://registry.yarnpkg.com/protobufjs/-/protobufjs-7.2.5.tgz#45d5c57387a6d29a17aab6846dcc283f9b8e7f2d"
   integrity sha512-gGXRSXvxQ7UiPgfw8gevrfRWcTlSbOFg+p/N+JVJEK5VhueL2miT6qTymqAmjr1Q5WbOCyJbyrk6JfWKwlFn6A==
@@ -7002,7 +7005,7 @@ typescript@5.2.2:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.2.2.tgz#5ebb5e5a5b75f085f22bc3f8460fba308310fa78"
   integrity sha512-mI4WrpHsbCIcwT9cF4FZvr80QUeKvsUsUvKDoR+X/7XHQH98xYD8YHZg7ANtz2GtZt/CBq2QJ0thkGJMHfqc1w==
 
-typescript@^5.1.3:
+typescript@^5.1.3, typescript@^5.3.2:
   version "5.3.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.3.2.tgz#00d1c7c1c46928c5845c1ee8d0cc2791031d4c43"
   integrity sha512-6l+RyNy7oAHDfxC4FzSJcz9vnjTKxrLpDG5M2Vu4SHRVNg6xzqZp6LYSR9zjqQTu8DU/f5xwxUdADOkbrIX2gQ==

@@ -23,7 +23,6 @@ export class StorageService implements OnModuleInit {
   })
   private client: ClientGrpc;
   constructor() {}
-// 
   async onModuleInit() {
     this.storageController =
       this.client.getService<IStorageController>('IStorageController');
