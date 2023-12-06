@@ -1,5 +1,6 @@
-import { BadRequestException, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { InjectDataSource, InjectRepository } from '@nestjs/typeorm';
+import { Messages, Response } from 'crm-prototypes';
 import { Transporter, createTransport } from 'nodemailer';
 import { MailConfig } from 'src/config/mail.config';
 import { DataSource, Repository } from 'typeorm';
@@ -49,7 +50,7 @@ export class MailService {
 
   async sendMail(data: CreateMailDto) {
     if (!data.html && !data.template) {
-      throw new BadRequestException('Html or template must be specify');
+      Response.badRequestThrow(Messages.notFoundTemplate);
     }
     if (data.html) {
       await this.mailer.sendMail(data);

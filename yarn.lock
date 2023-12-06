@@ -1318,7 +1318,7 @@
     webpack "5.89.0"
     webpack-node-externals "3.0.0"
 
-"@nestjs/common@^10.0.0":
+"@nestjs/common@^10.0.0", "@nestjs/common@^10.2.10":
   version "10.2.10"
   resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-10.2.10.tgz#22ba5c17962b54ffdf70a7bad690f1647995fe55"
   integrity sha512-fwAk931rjW8CNH2Mgwawq/7HWHH1dxkOLdcgs7U52ddLk8CtHXjejm1cbNahewlSbNhvlOl7y1STLHutE6sUqw==
@@ -3396,6 +3396,26 @@ create-require@^1.1.0:
   resolved "https://registry.yarnpkg.com/create-require/-/create-require-1.1.1.tgz#c1d7e8f1e5f6cfc9ff65f9cd352d37348756c333"
   integrity sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ==
 
+crm-logger@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/crm-logger/-/crm-logger-1.0.3.tgz#3c08e1587ba20ad44d2f5f20037ccf1830954de3"
+  integrity sha512-rI4lqjUrtBWehni+xDanQdOwTL0oXc3JuhWYAj2Hl3RGrndZ+Uzj2m8TFYEkSAxvogVF5h67TF7ZrdBxFYjzwA==
+  dependencies:
+    "@nestjs/common" "^10.0.0"
+    "@nestjs/config" "^3.1.1"
+    "@nestjs/core" "^10.0.0"
+    "@nestjs/platform-express" "^10.0.0"
+    "@nestjs/typeorm" "^10.0.1"
+    class-transformer "^0.5.1"
+    class-validator "^0.14.0"
+    crm-prototypes "^1.0.9"
+    crm-redis-client "^1.2.0"
+    pg "^8.11.3"
+    reflect-metadata "^0.1.13"
+    rxjs "^7.8.1"
+    typeorm "^0.3.17"
+    uuid "^9.0.1"
+
 crm-prototypes@^1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/crm-prototypes/-/crm-prototypes-1.0.6.tgz#127c2871dd9f6df2dea20c535d3fd2507a6be2ce"
@@ -3403,6 +3423,58 @@ crm-prototypes@^1.0.6:
   dependencies:
     protobufjs "^7.2.5"
     typescript "^5.3.2"
+
+crm-prototypes@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/crm-prototypes/-/crm-prototypes-1.0.8.tgz#669609c6ca4ac743c560e83c61dfc6230a5ce863"
+  integrity sha512-EK5xANJ9K8s3l5StO5LUYXpdZ2bqmnlIoqZFqAEcTzwbZZHql5T7gc2UxGClTYhklKSjzt8mXdBDeDaMzecQew==
+  dependencies:
+    "@nestjs/common" "^10.2.10"
+    class-validator "^0.14.0"
+    nestjs "^0.0.1"
+    protobufjs "^7.2.5"
+    typescript "^5.3.2"
+
+crm-prototypes@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/crm-prototypes/-/crm-prototypes-1.0.9.tgz#092fd2c1e501dd5d8d3ba60d980a0936f7221ab8"
+  integrity sha512-/EA4Yx/P/WZ2F4e0eCthj9ApI4JQ8a0bqOjxmaf2RTqdKAyHpLDvJ4NLYHqyfaql1E23lhDBZCDdMXfwoYPA+A==
+  dependencies:
+    "@nestjs/common" "^10.2.10"
+    class-validator "^0.14.0"
+    nestjs "^0.0.1"
+    protobufjs "^7.2.5"
+    typescript "^5.3.2"
+
+crm-redis-client@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/crm-redis-client/-/crm-redis-client-1.2.0.tgz#104f3f2233dd8b8222d37e3925db81a0feba51ee"
+  integrity sha512-9XfHdI7/lBlgjSdKO9HRFI9qOj55bD0P/HDTqOdU2bLt6wnQ5HvWVmVRV7+KuZob16iptu69XSoiHQA+rTBE9A==
+  dependencies:
+    "@grpc/grpc-js" "^1.9.12"
+    "@grpc/proto-loader" "^0.7.10"
+    "@nestjs/common" "^10.0.0"
+    "@nestjs/config" "^3.1.1"
+    "@nestjs/core" "^10.0.0"
+    "@nestjs/microservices" "^10.2.10"
+    "@nestjs/platform-express" "^10.0.0"
+    "@nestjs/typeorm" "^10.0.1"
+    "@types/aws-sdk" "^2.7.0"
+    amqp-connection-manager "^4.1.14"
+    amqplib "^0.10.3"
+    aws-sdk "^2.1506.0"
+    class-transformer "^0.5.1"
+    class-validator "^0.14.0"
+    crm-prototypes "^1.0.8"
+    crm-storage-client "^1.0.2"
+    handlebars "^4.7.8"
+    node-html-to-image "^4.0.0"
+    nodemailer "^6.9.7"
+    pg "^8.11.3"
+    reflect-metadata "^0.1.13"
+    rxjs "^7.8.1"
+    typeorm "^0.3.17"
+    uuid "^9.0.1"
 
 crm-storage-client@^1.0.2:
   version "1.0.2"
@@ -5580,6 +5652,11 @@ neo-async@^2.6.2:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
+
+nestjs@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/nestjs/-/nestjs-0.0.1.tgz#e4b3b82fbbd0bbf993a7c7a137b3ad59ccecf6b6"
+  integrity sha512-LJTf2zDRtWE69B6R2DUW6/LCftgVOq3kp3aqxPsB0eei8OX+lW2RFjzREZWRL1GUD/jGdBSMhM3Q5YWLC2uHNg==
 
 netmask@^2.0.2:
   version "2.0.2"
