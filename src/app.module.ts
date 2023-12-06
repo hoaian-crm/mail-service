@@ -4,7 +4,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { StorageModule } from 'crm-storage-client';
 import { ClientModule } from './modules/client/client.module';
 import { MailModule } from './modules/mail/mail.module';
-import { RedisModule } from './modules/redis/redis.module';
 import { TemplateModule } from './modules/template/template.module';
 
 @Module({
@@ -30,7 +29,6 @@ import { TemplateModule } from './modules/template/template.module';
     TemplateModule,
     ClientModule,
     StorageModule,
-    RedisModule,
   ],
 })
 export class AppModule {}
